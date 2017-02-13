@@ -13,6 +13,9 @@
 Vagrant.configure(2) do |config|
   config.hostmanager.enabled = true
 
+  # force virtualbox as mechanism for shared folders
+  config.vm.synced_folder ".", "/vagrant", type: "virtualbox"
+
   config.vm.box = "ubuntu/trusty64"
 
   config.vm.define "control", primary: true do |h|
